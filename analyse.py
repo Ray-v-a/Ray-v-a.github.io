@@ -4,6 +4,7 @@
 Generalised, asks user to input number of weeks.
 Will need to change plotting functions in next cell to allow this as well.
 """
+import gradio as gr
 import numpy as np
 import scipy 
 from scipy.stats import gamma
@@ -17,7 +18,7 @@ from scipy.special import lambertw
 # --- parameters from paper ---
 MEAN_SI_DAYS = 15.3
 SD_SI_DAYS = 9.3
-R_MIN, R_MAX = 0.0, 5.0
+R_MIN, R_MAX = 0.0, 10.0
 
 # --- weekly discretisation of continuous gamma SI using triangular kernel ---
 def weekly_w(max_weeks=50, mean=MEAN_SI_DAYS, sd=SD_SI_DAYS):
