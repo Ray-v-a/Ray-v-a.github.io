@@ -1,0 +1,125 @@
+   border-top: 100px solid transparent;
+
+h2 {
+  color: silver;
+  padding: 5px;
+  background: navy;
+}
+header {
+  width: 100%;
+  margin: 0 auto;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  background: #688867;
+  padding: 10px 0;
+  text-align:center;
+}
+
+body {
+  background: #BED8B7;
+  padding-bottom: 50px;
+}
+
+p {
+  color: black;
+  padding: 5px;
+  background-color: rgb(104 148 103 /0.5);
+  width: 1000px;
+  
+}
+h2 {
+  color: black;
+  padding: 5px;
+  background: #689467;
+  width: 1000px;
+  font-size: 50px;
+  text-align:center;
+  
+}
+
+h3 {
+  color: black;
+  padding: 5px;
+  background: #689467;
+  width: 1000px;
+  
+}
+main{
+   margin-left: 200px;
+   margin-top: 100px;
+}
+
+nav {
+  height: 100%; /* 100% Full-height */
+   /* 0 width - change this with JavaScript */
+  position: fixed; /* Stay in place */
+  z-index: 0; /* Stay on top */
+  top: 0; /* Stay at the top */
+  left: 0;
+  background-color: #609B5F; /* Black*/
+  overflow-x: hidden; /* Disable horizontal scroll */
+  padding-top: 100px; /* Place content 60px from the top */
+  padding-right: 20px;
+}
+.target::before {
+  content: "";
+  display: block;
+  height: 100px; /* fixed header height*/
+  margin: -100px 0 0; /* negative fixed header height */
+}
+
+.target {
+   position: relative;
+   border-top: 100px solid transparent;
+   margin: -100px 0 0;
+   -webkit-background-clip: padding-box;
+   -moz-background-clip: padding;
+   background-clip: padding-box;
+}
+
+#target:before {
+   content: "";
+   position: absolute;
+   top: -200px;
+   left: 0;
+   right: 0;
+   border-top: 200px solid #ccc;
+}
+
+@media screen and (max-height: 450px) {
+  nav {padding-top: 15px;}
+  nav a {font-size: 18px;}
+}
+
+
+footer{
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background-color: #688867;
+  color: white;
+  text-align: center;
+}
+
+aside{
+  position: fixed; /* Stay in place */
+  z-index: 0; /* Stay on top */
+  top: 0; /* Stay at the top */
+  right: 0;
+  background-color: #688867; 
+  overflow-x: hidden; /* Disable horizontal scroll */
+  padding-top: 100px; /* Place content 60px from the top */
+  padding-right: 20px;
+}
+
+aside a:link{
+  color: black;
+}
+aside a:visited{
+  color: black;
+}
+
+  
