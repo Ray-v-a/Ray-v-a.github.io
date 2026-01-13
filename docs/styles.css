@@ -12,27 +12,27 @@ header {
   top: 0;
   left: 0;
   z-index: 1;
-  background: #688867;
+  background: #ECBCF5;
   padding: 10px 0;
   text-align:center;
 }
 
 body {
-  background: #BED8B7;
+  background: #FCE6FC;
   padding-bottom: 50px;
 }
 
 p {
   color: black;
   padding: 5px;
-  background-color: rgb(104 148 103 /0.5);
+  background-color: rgb(255 212 255 /0.5);
   width: 1000px;
   
 }
 h2 {
   color: black;
   padding: 5px;
-  background: #689467;
+  background: #ECBCF5;
   width: 1000px;
   font-size: 50px;
   text-align:center;
