@@ -1,10 +1,5 @@
-   border-top: 100px solid transparent;
 
-h2 {
-  color: silver;
-  padding: 5px;
-  background: navy;
-}
+
 header {
   width: 100%;
   margin: 0 auto;
@@ -12,56 +7,136 @@ header {
   top: 0;
   left: 0;
   z-index: 1;
-  background: #ECBCF5;
+  background: white;
   padding: 10px 0;
-  text-align:center;
+  font-family:Arial, sans-serif;
+  
+}
+h1{
+ color:black;
+ font-size: 60px;
+ text-align:center;
+ font-family:Arial, sans-serif;
+}
+#OxSym {
+ position:fixed;
+ top:0;
+ right:0;
+ height:10%;
+ 
+}
+#gskimg{
+ position:fixed;
+ top:0;
+ right:10;
+ height:5%;
 }
 
+#Ovrview {
+    width: 100%;
+   background-color: #0f2346;
+   padding: 10px 0;
+   text-align:left;
+  color:#fefefe;
+   font-size: 25px;
+   margin: 0 auto;
+   font-family:Arial, sans-serif;
+ 
+}
+#Ovrtitle {
+  text-align:left;
+  font-size: 50px;
+  background-color:#0f2346;
+  padding:10px;
+  color: #fefefe;
+  font-family:Arial, sans-serif;
+  
+}
+#Ovrtxt {
+ color: #fefefe;
+ width: 100%;
+ font-family:Arial, sans-serif;
+  
+}
+#appbox1{
+ padding:10;
+ font-size:30;
+ background-color:#fefefe;
+ display:inline-block;
+}
+
+#txtbox{
+ background-color: #fefefe ;
+ padding-right:20px;
+}
+.centeringbox{
+  display: flex;
+  justify-content: center; 
+}
+#equation{
+  margin:auto;
+}
 body {
-  background: #FCE6FC;
+  background-image: url('greytiles.png');
+  background-size: 500px;
   padding-bottom: 50px;
+  width:100%;
+  font-family:Arial, sans-serif;
 }
 
 p {
   color: black;
   padding: 5px;
-  background-color: rgb(255 212 255 /0.5);
+  font-family:Arial, sans-serif;
   width: 1000px;
   
 }
 h2 {
-  color: black;
+  color: #fefefe;
   padding: 5px;
-  background: #ECBCF5;
-  width: 1000px;
-  font-size: 50px;
-  text-align:center;
+  background: #0f2346;
+  width: 100%;
+  font-size: 40px;
+  text-align:left;
+  font-family:Arial, sans-serif;
   
 }
 
 h3 {
-  color: black;
+  color: #fefefe;
   padding: 5px;
-  background: #689467;
+  background: #0f2346;
   width: 1000px;
+  font-family:Arial, sans-serif;
   
 }
 main{
-   margin-left: 200px;
-   margin-top: 100px;
+   margin-left: 0;
+   margin-top: 10px;
+   width:100%;
+   font-family:Arial, sans-serif;
 }
 
 nav {
-  height: 100%; /* 100% Full-height */
-   /* 0 width - change this with JavaScript */
-  position: fixed; /* Stay in place */
-  z-index: 0; /* Stay on top */
-  top: 0; /* Stay at the top */
+  height: 20%;  
+  z-index: 0; 
+  width:100%;
+  margin-top: 190px;
+  top: 0; 
   left: 0;
-  background-color: #609B5F; /* Black*/
+  background-color: #fefefe; 
   overflow-x: hidden; /* Disable horizontal scroll */
-  padding-top: 100px; /* Place content 60px from the top */
-  padding-right: 20px;
+  padding-top: 0px; /* Place content 60px from the top */
+  padding-right: 0px;
+  padding-left:10px;
+  font-size:20px
+ 
+}
+#navblock{
+  display:inline-block;
+  border-style: solid;
+  border-color: #fcfcfc;
+  padding:10px;
 }
 .target::before {
   content: "";
@@ -99,9 +174,18 @@ footer{
   left: 0;
   bottom: 0;
   width: 100%;
-  background-color: #688867;
+  background-color: #cccccc;
   color: white;
-  text-align: center;
+  text-align: justify;
+  padding:10;
+ 
+}
+#footblock{
+ display:flex;
+ justify-content: space-between;
+ list-style-type:none;
+ padding:10;
+ 
 }
 
 aside{
@@ -122,4 +206,10 @@ aside a:visited{
   color: black;
 }
 
+iframe{
+ margin-top: 20px; 
+ margin-right:5%;
+ margin-left:5%;
+  
+}
   
