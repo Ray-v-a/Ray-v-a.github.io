@@ -12,20 +12,14 @@ from scipy.stats import gamma
 from scipy.integrate import quad
 from scipy.special import logsumexp, lambertw
 
-from js import document
-from pyodide.ffi import create_proxy
+from pyscript import document
 
 
 MEAN_SI_DAYS = 15.3
 SD_SI_DAYS = 9.3
-
 R_MIN = 0.0
 R_MAX = 10.0
 
-
-# -----------------------------
-# DOM helpers
-# -----------------------------
 
 def by_id(element_id):
     return document.getElementById(element_id)
@@ -70,10 +64,6 @@ def set_button_busy(is_busy):
         button.disabled = is_busy
         button.textContent = "Computing..." if is_busy else "Compute PMO"
 
-
-# -----------------------------
-# Model code
-# -----------------------------
 
 def weekly_w(max_weeks=50, mean=MEAN_SI_DAYS, sd=SD_SI_DAYS):
     shape = (mean / sd) ** 2
@@ -136,7 +126,6 @@ def extinction_q(R):
 def PMO_given_R_general(I_seq, R, w):
     I = np.asarray(I_seq, dtype=float)
     T = len(I)
-
     q = extinction_q(R)
     total = 0.0
 
@@ -162,7 +151,6 @@ def PMO_given_R_general(I_seq, R, w):
 
     none_prob = min(1.0, max(0.0, none_prob))
     pmor = 1.0 - none_prob
-
     return min(1.0, max(0.0, pmor))
 
 
@@ -191,10 +179,6 @@ def PMO_general(I_seq, w=None, nR=2001, R_min=R_MIN, R_max=R_MAX):
     return PMO_val, R_grid, loglikes, posterior, pmogivenR, w
 
 
-# -----------------------------
-# Input parsing
-# -----------------------------
-
 def parse_counts(text_counts, n_weeks):
     if text_counts.strip() == "":
         return None, "Please enter observed counts."
@@ -222,10 +206,6 @@ def parse_counts(text_counts, n_weeks):
     return counts, None
 
 
-# -----------------------------
-# Plot creation
-# -----------------------------
-
 def make_plot_png(R_grid, pmogivenR, posterior):
     fig, ax1 = plt.subplots(figsize=(6, 4))
 
@@ -249,10 +229,6 @@ def make_plot_png(R_grid, pmogivenR, posterior):
     return buf.read()
 
 
-# -----------------------------
-# UI actions
-# -----------------------------
-
 def update_n_weeks_value(event=None):
     slider = by_id("n-weeks-slider")
     if slider is not None:
@@ -266,9 +242,6 @@ def update_r_grid_value(event=None):
 
 
 def compute_pmo(event=None):
-    if event is not None:
-        event.preventDefault()
-
     clear_plot()
     set_button_busy(True)
 
@@ -321,32 +294,6 @@ def compute_pmo(event=None):
         set_button_busy(False)
 
 
-# -----------------------------
-# Bind events
-# -----------------------------
-
-submit_proxy = create_proxy(compute_pmo)
-weeks_proxy = create_proxy(update_n_weeks_value)
-rgrid_proxy = create_proxy(update_r_grid_value)
-
-
-def bind_events():
-    form = by_id("pmo-form")
-    n_weeks_slider = by_id("n-weeks-slider")
-    r_grid_slider = by_id("r-grid-slider")
-
-    if form is not None:
-        form.addEventListener("submit", submit_proxy)
-
-    if n_weeks_slider is not None:
-        n_weeks_slider.addEventListener("input", weeks_proxy)
-
-    if r_grid_slider is not None:
-        r_grid_slider.addEventListener("input", rgrid_proxy)
-
-    update_n_weeks_value()
-    update_r_grid_value()
-    set_text("pmo-result-output", "Ready.")
-
-
-bind_events()
+set_text("n-weeks-value", by_id("n-weeks-slider").value)
+set_text("r-grid-value", by_id("r-grid-slider").value)
+set_text("pmo-result-output", "Ready.")
