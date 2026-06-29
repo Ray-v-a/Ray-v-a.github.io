@@ -253,6 +253,7 @@ def compute_pmo(event=None):
         counts, err = parse_counts(text_counts, n_weeks)
         if err:
             set_text("pmo-result-output", err)
+            set_text("pmo-value-output", "—")
             return
 
         set_text(
@@ -272,6 +273,8 @@ def compute_pmo(event=None):
             R_max=R_MAX,
         )
 
+        set_text("pmo-value-output", f"{PMO_val:.6f}")
+
         result_text = (
             f"Observed sequence: {counts}\n"
             f"Estimated PMO integrated over R in [{R_MIN:g}, {R_MAX:g}] = {PMO_val:.6f}\n"
@@ -288,12 +291,13 @@ def compute_pmo(event=None):
 
     except Exception as exc:
         clear_plot()
+        set_text("pmo-value-output", "—")
         set_text("pmo-result-output", f"An error occurred while computing PMO:\n{type(exc).__name__}: {exc}")
 
     finally:
         set_button_busy(False)
 
-
 set_text("n-weeks-value", by_id("n-weeks-slider").value)
 set_text("r-grid-value", by_id("r-grid-slider").value)
 set_text("pmo-result-output", "Ready.")
+set_text("pmo-value-output", "—")
