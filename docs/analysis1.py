@@ -273,7 +273,8 @@ def compute_pmo(event=None):
             R_max=R_MAX,
         )
 
-        set_text("pmo-value-output", f"{PMO_val:.6f}")
+        print("PMO =", PMO_val)
+        set_text("pmo-value-output", str(PMO_val))
 
         result_text = (
             f"Observed sequence: {counts}\n"
