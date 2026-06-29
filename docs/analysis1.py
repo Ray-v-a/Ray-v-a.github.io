@@ -401,3 +401,22 @@ def bind_events():
 
 
 bind_events()
+
+# inside analysis1.py
+from pyodide.ffi import create_proxy
+
+submit_proxy = create_proxy(compute_pmo)
+weeks_proxy = create_proxy(update_n_weeks_value)
+rgrid_proxy = create_proxy(update_r_grid_value)
+
+def bind_events():
+    form = by_id("pmo-form")
+    n_weeks_slider = by_id("n-weeks-slider")
+    r_grid_slider = by_id("r-grid-slider")
+
+    form.addEventListener("submit", submit_proxy)
+    n_weeks_slider.addEventListener("input", weeks_proxy)
+    r_grid_slider.addEventListener("input", rgrid_proxy)
+
+    update_n_weeks_value()
+    update_r_grid_value()
