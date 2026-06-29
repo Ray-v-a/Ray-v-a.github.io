@@ -291,37 +291,6 @@
     </section>
   </main>
 
-  <script>
-    // Lightweight UI-only behaviour.
-    // PyScript can later replace or extend this logic.
-
-    const nWeeksSlider = document.getElementById("n-weeks-slider");
-    const nWeeksValue = document.getElementById("n-weeks-value");
-
-    const rGridSlider = document.getElementById("r-grid-slider");
-    const rGridValue = document.getElementById("r-grid-value");
-
-    const pmoForm = document.getElementById("pmo-form");
-    const resultOutput = document.getElementById("pmo-result-output");
-
-    nWeeksSlider.addEventListener("input", () => {
-      nWeeksValue.textContent = nWeeksSlider.value;
-    });
-
-    rGridSlider.addEventListener("input", () => {
-      rGridValue.textContent = rGridSlider.value;
-    });
-
-    pmoForm.addEventListener("submit", (event) => {
-      event.preventDefault();
-
-      resultOutput.textContent =
-        "Ready for PyScript calculation.\n" +
-        "n_weeks = " + nWeeksSlider.value + "\n" +
-        "nR = " + rGridSlider.value + "\n" +
-        "observed_counts = " + document.getElementById("observed-counts-input").value;
-    });
-  </script>
 <script type="py" src="./analysis1.py" config="./pyscript.json"></script>
 </body>
 </html>
