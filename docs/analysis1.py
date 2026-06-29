@@ -400,7 +400,7 @@ def bind_events():
     update_r_grid_value()
 
 
-bind_events()
+
 
 # inside analysis1.py
 from pyodide.ffi import create_proxy
@@ -420,3 +420,4 @@ def bind_events():
 
     update_n_weeks_value()
     update_r_grid_value()
+bind_events()
